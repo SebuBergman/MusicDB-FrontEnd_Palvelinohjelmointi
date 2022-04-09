@@ -4,7 +4,7 @@ function ShowSongs() {
     const [listkysely, setListKysely] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/kaikki')
+        fetch('https://songdatabase-harjoitustyo.herokuapp.com/songs')
         .then(res => res.json())
         .then(items => {
             setListKysely(items)
@@ -14,14 +14,14 @@ function ShowSongs() {
 
     return(
         <div>
-            <h1>Kyselyt - Front end</h1>
-            <p>{listkysely.id}</p>
-            <p>{listkysely.nimi}</p>
-            
+            <h1>Songs DB</h1>
                 {
-                listkysely.map((kysely, index) =>
-                <ul key={index}>{kysely.kysely.nimi}
-                    <li>{kysely.kysymysteksti}</li>
+                listkysely.map((song, index) =>
+                <ul key={index}>{song.title}
+                    <li>{song.genre}</li>
+                    <li>{song.length}</li>
+                    <li>{song.album.name}</li>
+                    <li>{song.album.artist}</li>
                 </ul>
                 )
                 }
