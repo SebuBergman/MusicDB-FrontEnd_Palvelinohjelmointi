@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
 function ShowSongs() {
-    const [listkysely, setListKysely] = useState([]);
+    const [listsongs, setListSongs] = useState([]);
+
+    const apiUrl = `http://localhost:8080/songs`;
 
     useEffect(() => {
-        fetch('https://songdatabase-harjoitustyo.herokuapp.com/songs')
+        fetch(apiUrl)
         .then(res => res.json())
         .then(items => {
-            setListKysely(items)
+            setListSongs(items)
         })
         .catch(err =>console.error(err))
-    }, []);
+    }, [apiUrl]);
 
     return(
         <div>
             <h1>Songs DB</h1>
                 {
-                listkysely.map((song, index) =>
+                listsongs.map((song, index) =>
                 <ul key={index}>{song.title}
                     <li>{song.genre}</li>
                     <li>{song.length}</li>
