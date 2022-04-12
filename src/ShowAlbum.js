@@ -11,8 +11,6 @@ function ShowAlbum() {
     const [listalbums, setListAlbums] = useState([]);
     const [open, setOpen] = useState(false);
 
-    const apiUrl = `https://songdatabase-harjoitustyo.herokuapp.com/albums`;
-
     useEffect(() => {
         fetchAlbums();
     }, []);
@@ -26,7 +24,6 @@ function ShowAlbum() {
     const columns = [
         { field: 'name', sortable: true, filter: true},
         { field: 'artist', sortable: true, filter: true},
-        { field: 'songs.title', sortable: true, filter: true},
         {
             headerName: '',
             width: 100,
