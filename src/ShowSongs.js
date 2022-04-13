@@ -10,8 +10,6 @@ import 'ag-grid-community/dist/styles/ag-theme-material.css';
 function ShowSongs() {
     const [listsongs, setListSongs] = useState([]);
 
-    const apiUrl = `https://songdatabase-harjoitustyo.herokuapp.com/songs`;
-
     useEffect(() => {
         fetchSongs();
     }, []);
@@ -26,6 +24,8 @@ function ShowSongs() {
         { field: 'title', sortable: true, filter: true},
         { field: 'genre', sortable: true, filter: true},
         { field: 'album.name', sortable: true, filter: true},
+        { field: 'album.artist', sortable: true, filter: true},
+        { field: 'album.releaseyear', sortable: true, filter: true},
         {
             headerName: '',
             width: 100,

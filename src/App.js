@@ -17,11 +17,9 @@ function App() {
     <div className="App">
         <Tabs value={value} onChange={handleTabChange}>
             <Tab value="home" label="Home" />
-            <Tab value="showalbum" label="ShowAlbum" />
-            <Tab value="showsongs" label="ShowSongs" />
+            <Tab value="showsongs" label="Songs db" />
         </Tabs>
         {value === 'home' && <Home />}
-        {value === 'showalbum' && <ShowAlbum />}
         {value === 'showsongs' && <ShowSongs />}
     </div>);
 }
