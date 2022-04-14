@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+#inputalbum {
+  max-width: 500px;
+  margin: auto;
+}
+
+#albumsongsdiv {
+  width: 600px;
+  margin: auto; 
+}
+
+#searchbutton {
+  margin: 15px;
+}
+
+#albumnameh1 {
+  font-size: 1.5em;
+}
+
+#cssTable td 
+{
+    text-align: center; 
+    vertical-align: middle;
+}
+
+#artistunderline {
+  text-decoration: underline;
+}
