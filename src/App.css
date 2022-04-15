@@ -37,13 +37,14 @@
   }
 }
 
+/* input and div css */
 #inputalbum {
   max-width: 500px;
   margin: auto;
 }
 
 #albumh1songsdiv {
-  padding-top: 50px;
+  padding-top: 15px;
 }
 
 #albumandsongsdiv {
@@ -51,19 +52,26 @@
   margin-right: 100px;
 }
 
-#searchbutton {
-  margin: 15px;
-}
-
 #albumnameh1 {
   font-size: 1.5em;
 }
 
+#searchbutton {
+  margin: 15px;
+}
+
+#divcontainer {
+  padding-top: 40px;
+}
+
+
+/* Table css styles */
 #cssTable td {
   text-align: center; 
   vertical-align: middle;
 }
 
+/* Artistname underlined and some other album related css stylings */
 #artistunderline {
   text-decoration: underline;
 }
@@ -78,6 +86,7 @@
   float: left;
 }
 
+/* Float for album img */
 #imgcss {
   float: left;
 }
