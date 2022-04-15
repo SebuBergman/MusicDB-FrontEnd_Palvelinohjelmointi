@@ -7,7 +7,9 @@ import 'ag-grid-community/dist/styles/ag-theme-material.css';
 
 function ShowAlbum() {
     const [listalbums, setListAlbums] = useState([]);
-    const [listalbumtitle, setListAlbumTitle] = useState([]);
+    const [listalbumyear, setListAlbumYear] = useState([]);
+    const [listalbumname, setListAlbumName] = useState([]);
+    const [listalbumartist, setListAlbumArtist] = useState([]);
     const [getSearch, setGetSearch] = React.useState('');
     const [userSearch, setUserSearch] = React.useState('1');
 
@@ -39,9 +41,9 @@ function ShowAlbum() {
             })
             .then(album => {
                 console.log(album)
-                document.getElementById('album_name').innerHTML = album.name;
-                document.getElementById('album_year').innerHTML = album.releaseyear;
-                document.getElementById('album_artist').innerHTML = album.artist;
+                setListAlbumArtist(album.artist);
+                setListAlbumYear(album.releaseyear);
+                setListAlbumName(album.name);
             }).catch(e => console.log(e))
     }, [apiUrl]);
 
@@ -52,26 +54,34 @@ function ShowAlbum() {
                     <input type="text" id="inputalbum" className="form-control" onChange={inputHandler} value={getSearch}/>
                     <button type="submit" className="btn btn-primary" id="searchbutton" onClick={submitHandler}>Search</button>
                 </div>
-                <div id="albumsongsdiv">
-                            <h1 id="albumnameh1"><p id="album_name"></p>(<p id="album_year"></p>)</h1>
-                            <h4 id="artistunderline"><p id="album_artist"></p></h4>
-                            <img src="https://en.wikipedia.org/wiki/Sigh_No_More_(Mumford_%26_Sons_album)#/media/File:Mumfordsonssighnomore.jpg" width="100" height="100"/>
-                        <table width="100%">
-                            <tbody>
-                                <tr>
-                                    <td>Name</td>
-                                    <td></td>
-                                </tr>
-                                {
-                                    listalbums.map((songs, index) =>
-                                        <tr key={index} >
-                                            <td>{songs.title}</td>
-                                            <td>{songs.genre}</td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+                <div claasName="container">
+                    <div className="row justify-content-md-center">
+                        <div className="col-md-auto">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/f/f3/Mumfordsonssighnomore.jpg" alt="AlbumArt" width="400" height="400" id="imgcss"/>
+                            </div>
+                        
+                        <div id="albumh1songsdiv" className="col-md-auto">
+                            <h3>{listalbumname}({listalbumyear})</h3>
+                            <h5>{listalbumartist}</h5>
+                            <table id="tablecss">
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Genre</td>
+                                    </tr>
+                                    {
+                                        listalbums.map((songs, index) =>
+                                            <tr key={index} >
+                                                <td>{songs.title}</td>
+                                                <td>{songs.genre}</td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
                 </div>
         </div>
     )
