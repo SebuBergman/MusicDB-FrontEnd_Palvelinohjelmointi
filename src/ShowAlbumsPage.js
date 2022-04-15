@@ -67,8 +67,11 @@ function ShowAlbum() {
                 <button type="submit" className="btn btn-primary" id="searchbutton" onClick={submitHandler}>Search</button>
                 <FetchAlbums />
             </div>
-            <div className="container" id="divcontainer">
+            <div className="container">
                 <div className="row justify-content-md-center">
+                    <div className="col-md-auto">
+                        <img src={listalbumart} alt="AlbumArt" width="300" height="300" id="imgcss"/>
+                    </div> 
                     <div id="albumh1songsdiv" className="col-md-auto">
                         <h3>{listalbumname} ({listalbumyear})</h3>
                         <h5>{listalbumartist}</h5>
