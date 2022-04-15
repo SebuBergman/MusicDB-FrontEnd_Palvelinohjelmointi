@@ -4,8 +4,8 @@ import React from 'react';
 function Home() {
     return (
     <div>
-        <h1>Welcome to the Song database front-end</h1>
-        <p>Check out the other tab for the list of songs</p>
+        <h1>Welcome to the Music database front-end page</h1>
+        <p>Check out the other tabs for the list of songs & albums</p>
     </div>);
 }
 
