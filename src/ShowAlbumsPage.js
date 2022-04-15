@@ -48,15 +48,14 @@ function ShowAlbum() {
     //Fetch for albums details - Into individual consts for one info for each item
     useEffect(() => {
         fetch(apiUrlAlbums)
-            .then(response => {
-            return response.json();
-            })
+            .then(response => response.json())
             .then(album => {
                 setListAlbumArtist(album.artist);
-                setListAlbumArt(album.albumart);
                 setListAlbumYear(album.releaseyear);
                 setListAlbumName(album.name);
-            }).catch(e => console.log(e))
+                setListAlbumArt(album.albumart);
+            })
+            .catch(err => console.error(err))
     }, [apiUrlAlbums]);
 
     //Return statement for rendering html. It has buttons, tables, headings and more
@@ -68,7 +67,7 @@ function ShowAlbum() {
                 <button type="submit" className="btn btn-primary" id="searchbutton" onClick={submitHandler}>Search</button>
                 <FetchAlbums />
             </div>
-            <div claasName="container">
+            <div className="container">
                 <div className="row justify-content-md-center">
                     <div className="col-md-auto">
                         <img src={listalbumart} alt="AlbumArt" width="400" height="400" id="imgcss"/>
