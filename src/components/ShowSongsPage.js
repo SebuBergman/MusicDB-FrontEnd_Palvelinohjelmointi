@@ -17,8 +17,8 @@ function ShowSongs() {
     const fetchSongs = () => {
         fetch("https://songdatabase-harjoitustyo.herokuapp.com/songs")
             .then(response => response.json())
-            .then(data => setListSongs(data))
-    }
+            .then(data => setListSongs(data));
+    };
 
     //A const for the columns found in the rendered page. Some ag-grid stuff :DD
     const columns = [
@@ -31,7 +31,7 @@ function ShowSongs() {
             headerName: '',
             width: 100,
         }
-    ]
+    ];
 
     // Return with aggrid and div for style and theme
     return (

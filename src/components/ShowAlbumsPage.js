@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FetchAlbums from "./FetchAlbums"
+import FetchAlbums from "./FetchAlbums";
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
@@ -13,6 +13,8 @@ function ShowAlbum() {
     const [listalbumyear, setListAlbumYear] = useState([]);
     const [listalbumname, setListAlbumName] = useState([]);
     const [listalbumartist, setListAlbumArtist] = useState([]);
+
+    //For img & placeholder
     const [listalbumart, setListAlbumArt] = useState([]);
 
     //Const for search
@@ -40,9 +42,9 @@ function ShowAlbum() {
         fetch(apiUrlSongs)
             .then(response => response.json())
             .then(responseData => {
-                setListAlbums(responseData._embedded.songs)
+                setListAlbums(responseData._embedded.songs);
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
     }, [apiUrlSongs]);
 
     //Fetch for albums details - Into individual consts for one info for each item
@@ -55,7 +57,7 @@ function ShowAlbum() {
                 setListAlbumName(album.name);
                 setListAlbumArt(album.albumart);
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
     }, [apiUrlAlbums]);
 
     //Return statement for rendering html. It has buttons, tables, headings and more
